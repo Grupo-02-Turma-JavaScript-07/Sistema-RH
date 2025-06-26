@@ -1,3 +1,4 @@
+import { FuncionarioModule } from './funcionarios/funcionario.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -16,6 +17,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [],
       synchronize: true,
     }),
+    FuncionarioModule,
   ],
   controllers: [AppController],
   providers: [AppService],
