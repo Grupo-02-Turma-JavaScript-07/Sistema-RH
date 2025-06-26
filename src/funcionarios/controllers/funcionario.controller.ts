@@ -8,6 +8,7 @@ import { Body,
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 
 @Controller('/funcionarios')
@@ -36,5 +37,11 @@ export class FuncionarioController {
   @HttpCode(HttpStatus.CREATED)
   create(@Body() funcionario: Funcionario): Promise<Funcionario> {
     return this.funcionarioService.create(funcionario);
+  }
+
+  @Put()
+  @HttpCode(HttpStatus.OK)
+  update(@Body() funcionario: Funcionario): Promise<Funcionario> {
+    return this.funcionarioService.update(funcionario);
   }
 }
