@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Funcionario } from './funcionarios/entities/funcionarios.entity';
 
 @Module({
   imports: [
@@ -13,8 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_rhFlow',
-      //Precisamos adicionar a Entidade abaixo feito pelo Miguel
-      entities: [],
+      entities: [Funcionario],
       synchronize: true,
     }),
     FuncionarioModule,
