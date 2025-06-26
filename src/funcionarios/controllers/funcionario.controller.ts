@@ -44,4 +44,10 @@ export class FuncionarioController {
   update(@Body() funcionario: Funcionario): Promise<Funcionario> {
     return this.funcionarioService.update(funcionario);
   }
+
+  @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.funcionarioService.delete(id);
+  }
 }
