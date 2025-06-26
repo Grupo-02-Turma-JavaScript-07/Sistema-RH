@@ -1,7 +1,9 @@
 import { Funcionario } from '../entities/funcionarios.entity';
 import { FuncionarioService } from './../services/funcionario.service';
-import { Body,  
+import {
+  Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
