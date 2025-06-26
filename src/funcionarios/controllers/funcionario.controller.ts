@@ -28,7 +28,7 @@ export class FuncionarioController {
   findById(@Param('id', ParseIntPipe) id: number): Promise<Funcionario> {
     return this.funcionarioService.findById(id);
   }
-  
+
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
   findByName(@Param('nome') nome: string): Promise<Funcionario[]> {

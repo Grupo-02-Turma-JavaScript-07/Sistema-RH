@@ -33,8 +33,8 @@ export class FuncionarioService {
     return await this.funcionarioRepository.find({
       where: {
         nome: ILike(`%${nome}%`),
-      }
-    })
+      },
+    });
   }
 
   async create(funcionario: Funcionario): Promise<Funcionario> {
@@ -42,7 +42,7 @@ export class FuncionarioService {
   }
 
   async update(funcionario: Funcionario): Promise<Funcionario> {
-    await this.findById(funcionario.id)
+    await this.findById(funcionario.id);
     return await this.funcionarioRepository.save(funcionario);
   }
 
