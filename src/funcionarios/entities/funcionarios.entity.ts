@@ -16,7 +16,7 @@ export class Funcionario {
   nome: string;
 
   @IsNotEmpty()
-  @Column({ type: 'decimal', precision: 8, scale: 2 })
+  @Column({ type: 'decimal', precision: 8, scale: 2, nullable: false })
   salario: number;
 
   @IsNotEmpty()
