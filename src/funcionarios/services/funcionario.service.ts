@@ -2,6 +2,8 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Funcionario } from '../entities/funcionarios.entity';
 import { Repository } from 'typeorm';
+import { ILike } from 'typeorm';
+
 
 @Injectable()
 export class FuncionarioService {
@@ -27,5 +29,17 @@ export class FuncionarioService {
         HttpStatus.NOT_FOUND,
       );
     return funcionario;
+  }
+
+  async findByName(nome: String): Promise<Funcionario[]> {
+    return await this.funcionarioRepository.find({
+      where: {
+        nome: ILike(`%${nome}%`),
+      }
+    })
+  }
+
+  async create(funcionario: Funcionario): Promise<Funcionario> {
+    return await this.funcionarioRepository.save(funcionario);
   }
 }
